@@ -65,6 +65,7 @@ jobs:
           python -m pip install flake8 pytest-cov
           pip install -r tests/requirements_win.txt
           git clone https://gitee.com/mindspore/mindspore.git -b r2.0
+          cd mindspore
           export CC=/usr/bin/clang
           export CXX=/usr/bin/clang++
           bash build.sh -e cpu -S on -j4
