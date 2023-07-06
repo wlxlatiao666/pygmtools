@@ -64,12 +64,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install flake8 pytest-cov
           pip install -r tests/requirements_win.txt
-          git clone https://gitee.com/mindspore/mindspore.git -b r2.0
-          cd mindspore
-          export CC=/usr/bin/clang
-          export CXX=/usr/bin/clang++
-          bash build.sh -e cpu -S on -j4
-          pip install output/mindspore-*.whl -i https://pypi.tuna.tsinghua.edu.cn/simple
+          conda create -c conda-forge -n mindspore_py38 -c conda-forge python=3.8.5
+          conda activate mindspore_py38
+          conda install mindspore -c mindspore -c conda-forge
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
