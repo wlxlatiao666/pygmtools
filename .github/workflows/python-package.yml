@@ -65,6 +65,7 @@ jobs:
           python -m pip install flake8 pytest-cov
           pip install -r tests/requirements_win.txt
           conda create -c conda-forge -n mindspore_py38 -c conda-forge python=3.8.5
+          conda init bash
           conda activate mindspore_py38
           conda install mindspore -c mindspore -c conda-forge
       - name: Lint with flake8
